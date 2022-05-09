@@ -1,4 +1,4 @@
-# artist
+# Artist
 
 ## Build Setup
 
