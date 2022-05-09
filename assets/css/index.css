@@ -1,0 +1,63 @@
+body, h1, h2, h3, h4, h5 {
+    font-family: "Raleway", sans-serif
+}
+
+.primary {
+    background-color: #141e30;
+    color: white;
+}
+
+.primary-text {
+    color: #141e30;
+}
+
+.secondary {
+    background-color: #243b55;
+    color: white;
+}
+
+.count-input {
+    text-align: right;
+    font-size: 10px;
+    color: #141e30;
+}
+
+.row {
+    content: "";
+    clear: both;
+    display: flex;
+    justify-content: center;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .col-quarter {
+        width: 24.99999%;
+    }
+
+    .col-third {
+        width: 33.33%;
+    }
+
+    .col-half {
+        width: 50%;
+    }
+
+    .col-twothird {
+        width: 66.33%;
+    }
+
+    .col-threequarter {
+        width: 74.99999%;
+    }
+}
