@@ -1,8 +1,8 @@
 <template>
   <div class="progress">
-    <h5 class="primary--text">{{ label }}</h5>
-    <div class="progress_box">
-      <div class="primary" :style="progressStyle">{{ width }}</div>
+    <h5 class="progress__label">{{ label }}</h5>
+    <div class="progress__box">
+      <div :style="progressStyle">{{ width }}</div>
     </div>
   </div>
 </template>
@@ -33,21 +33,30 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 .progress {
   overflow: hidden;
   position: relative;
   padding: 10px 0;
-}
-.progress_box {
-  width: 100%;
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid rgb(71, 70, 70);
-}
 
-.progress_box div {
-  height: 100%;
-  text-align: center;
+  .progress__label {
+    color: $primary-color;
+  }
+
+  .progress__box {
+    width: 100%;
+    height: 30px;
+    border: 1px solid $primary-color;
+    border-radius: $round;
+
+    div {
+      height: 100%;
+      text-align: center;
+      background-color: $primary-color;
+      color: white;
+    }
+  }
 }
 </style>

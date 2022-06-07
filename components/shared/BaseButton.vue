@@ -1,10 +1,5 @@
 <template>
-  <button
-    type="button"
-    :disabled="disabled"
-    :class="[`base-button__${color}`]"
-    @click="onClick"
-  >
+  <button type="button" :disabled="disabled" :class="classes" @click="onClick">
     <slot>Button</slot>
   </button>
 </template>
@@ -21,6 +16,14 @@ export default {
     },
     disabled: { type: Boolean, default: false },
   },
+  computed: {
+    classes() {
+      return {
+        btn: true,
+        [this.color]: true,
+      };
+    },
+  },
   methods: {
     onClick() {
       return this.$emit("click");
@@ -28,12 +31,12 @@ export default {
   },
 };
 </script>
-<style scoped>
-.base-button__primary {
-  background-color: #141e30;
-  color: white;
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
+button {
   border: none;
-  border-radius: 4px;
+  border-radius: $round;
   padding: 16px 20px;
   text-align: center;
   text-decoration: none;
@@ -44,24 +47,23 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.base-button__white {
+.primary {
+  background-color: $primary-color;
+  color: white;
+
+  &:hover {
+    background-color: $secondary-color;
+    color: white;
+  }
+}
+
+.white {
   background-color: white;
-  color: #141e30;
-  border: none;
-  border-radius: 4px;
-  padding: 16px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.144),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+  color: $primary-color;
 
-.base-button__white:hover,
-base-button__primary:hover {
-  background-color: #345375e0;
-  color: white;
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+  }
 }
 </style>

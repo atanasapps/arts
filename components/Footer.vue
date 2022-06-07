@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
     <Container>
-      <div class="row">
-        <div class="col-half">
+      <Row>
+        <Column twohalf_sm half_md>
           <div class="footer_icons">
             <a href="https://facebook.com" target="__blank">
               <img :src="fb_img" class="social" alt="Facebook" />
@@ -18,13 +18,12 @@
             </a>
           </div>
           <p>Powered by: Atanas Lazarovski</p>
-        </div>
-      </div>
+        </Column>
+      </Row>
     </Container>
   </footer>
 </template>
 <script>
-import Container from "@/components/shared/Container.vue";
 import fb_img from "@/assets/images/social/fb.png";
 import pinterest_img from "@/assets/images/social/pinterest.png";
 import insta_img from "@/assets/images/social/insta.png";
@@ -32,7 +31,6 @@ import linked_img from "@/assets/images/social/linked.png";
 
 export default {
   name: "Footer",
-  components: { Container },
   data() {
     return {
       fb_img,
@@ -43,14 +41,17 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 .footer {
-  background: #243b55;
+  background-color: $secondary-color;
   text-align: center;
   color: white;
+  padding: $padding-20;
 }
 .footer_icons {
-  padding: 10px;
+  padding: $padding-10;
 }
 .footer_icons img {
   width: 30px;

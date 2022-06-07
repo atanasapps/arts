@@ -4,8 +4,10 @@
     <div @click="viewImage" class="container">
       <img :srcset="image.src.srcSet" class="container__img" />
       <div class="container__info">
-        <h4>{{ image.title }}</h4>
-        <q>{{ image.description }}</q>
+        <div>
+          <h4>{{ image.title }}</h4>
+          <q>{{ image.description }}</q>
+        </div>
       </div>
     </div>
   </div>
@@ -29,37 +31,39 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 .container {
   position: relative;
   cursor: pointer;
-}
+  padding: 5px;
 
-.container__img {
-  margin-top: 4px;
-  max-width: 100%;
-  height: auto;
-}
+  .container__img {
+    max-width: 100%;
+    height: auto;
+    &:hover {
+      filter: grayscale(100%);
+    }
+  }
 
-.container__info {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  opacity: 0;
-  color: white;
-  font-size: 14px;
-  font-style: italic;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-}
+  .container__info {
+    position: absolute;
+    bottom: 6%;
+    right: 4%;
+    left: 4%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    color: white;
+    font-size: $text-medium;
+    font-style: italic;
+    text-align: center;
+    cursor: pointer;
+    padding: $padding-10;
+  }
 
-.container__img:hover {
-  filter: grayscale(100%);
-}
-
-.container:hover .container__info {
-  opacity: 1;
+  &:hover .container__info {
+    opacity: 1;
+  }
 }
 </style>

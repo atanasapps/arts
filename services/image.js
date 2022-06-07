@@ -5,8 +5,9 @@ const getImagesByOrientation = (images) => {
     }
 }
 
-const classifyImages = (images) => {
+const classifyImages = async (images) => {
     const { landscapes, portraits } = getImagesByOrientation(images);
+
     if (landscapes.length >= portraits.length) {
         for (let i = 0; i < landscapes.length; i++) {
             if (i % 2 == 0 && portraits.length > 0) {
@@ -24,8 +25,8 @@ const classifyImages = (images) => {
     }
 }
 
-export const getImagesPerColumn = (images = [], columns = 1) => {
-    const classifiedImages = classifyImages(images);
+export const getImagesPerColumn = async (images = [], columns = 4) => {
+    const classifiedImages = await classifyImages(images);
     const items = [];
     const imagesPerColumn = Math.round(images.length / columns);
     let rest = (columns * imagesPerColumn) > images.length ? 1 : 0;

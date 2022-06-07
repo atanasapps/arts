@@ -14,18 +14,17 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://www.w3schools.com/w3css/4/w3.css' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Raleway' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: ["~/assets/scss/index.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/components.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,5 +41,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    loaders: {
+      sass: {
+        implementation: require('sass'),
+      },
+      scss: {
+        implementation: require('sass'),
+      },
+    }
   }
 }

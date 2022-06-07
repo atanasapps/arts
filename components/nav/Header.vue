@@ -25,17 +25,19 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 15px;
-}
 
-header a {
-  font-size: 20px;
-  cursor: pointer;
-  color: #141e30;
+  a {
+    font-size: 20px;
+    cursor: pointer;
+    color: $primary-color;
+  }
 }
 </style>

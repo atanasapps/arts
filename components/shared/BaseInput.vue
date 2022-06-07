@@ -13,7 +13,9 @@
       :disabled="disabled"
       @input="onInput"
     />
-    <div v-if="count" class="count-input">{{ `${countValue} / ${maxlength}` }}</div>
+    <div v-if="count" class="count">
+      {{ `${countValue} / ${maxlength}` }}
+    </div>
   </div>
 </template>
 <script>
@@ -49,34 +51,36 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 input {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #141e30;
-  color: #141e30;
-  border-radius: 4px;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  border-radius: $round;
   box-sizing: border-box;
-}
 
-input:focus {
-  border: 2px solid #141e30;
+  &:focus {
+    border: 2px solid $primary-color;
+  }
 }
 
 input[type="submit"] {
   width: 100%;
-  background-color: #141e30;
+  background-color: $primary-color;
   color: white;
   padding: 12px 20px;
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  border-radius: $round;
   cursor: pointer;
-}
 
-input[type="submit"]:hover {
-  background-color: #141e30d3;
+  &:hover {
+    background-color: $secondary-color;
+  }
 }
 </style>

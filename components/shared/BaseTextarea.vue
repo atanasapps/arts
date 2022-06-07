@@ -14,7 +14,7 @@
       :disabled="disabled"
       @input="onInput"
     />
-    <div v-if="count" class="count-input">
+    <div v-if="count" class="count">
       {{ `${countValue} / ${maxlength}` }}
     </div>
   </div>
@@ -54,19 +54,21 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #141e30;
-  color: #141e30;
-  border-radius: 4px;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  border-radius: $round;
   box-sizing: border-box;
-}
 
-textarea:focus {
-  border: 2px solid #141e30;
+  &:focus {
+    border: 2px solid $primary-color;
+  }
 }
 </style>

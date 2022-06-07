@@ -5,7 +5,7 @@
       <nuxt-link to="/#about" @click.native="toggle"> ABOUT ME </nuxt-link>
       <nuxt-link to="/#skills" @click.native="toggle"> MY SKILLS </nuxt-link>
       <nuxt-link to="/#contact" @click.native="toggle"> CONTACT </nuxt-link>
-      <a class="sidenav__close" @click.native="toggle"> CLOSE </a>
+      <a class="sidenav__close" @click="toggle"> CLOSE </a>
     </div>
   </nav>
 </template>
@@ -19,7 +19,9 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 .sidenav {
   height: 100%;
   width: 100%;
@@ -29,32 +31,30 @@ export default {
   right: 0;
   background-color: rgba(17, 17, 17, 0.94);
   overflow-x: hidden;
-  padding-top: 20px;
   text-align: center;
   transition: 0.5s;
-}
 
-.sidenav__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: inherit;
-}
+  .sidenav__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
 
-.sidenav__content a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #818181;
-  display: block;
-  cursor: pointer;
-}
+    a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: $text-large;
+      color: #818181;
+      display: block;
+      cursor: pointer;
+      &:hover {
+        color: #f1f1f1;
+      }
+    }
+  }
 
-.sidenav__content a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav__close {
-  padding-top: 20px;
+  .sidenav__close {
+    padding-top: 20px;
+  }
 }
 </style>

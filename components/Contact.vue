@@ -2,8 +2,8 @@
   <section id="contact" class="contact">
     <Container>
       <Title title="Contact me" />
-      <div class="row">
-        <div class="col-twothird">
+      <Row>
+        <Column twohalf_sm twothird_md>
           <form action="/api/contact" method="post">
             <BaseInput
               v-model="firstName"
@@ -28,32 +28,28 @@
             />
             <BaseInput type="submit" value="Fristname" />
           </form>
-        </div>
-      </div>
+        </Column>
+      </Row>
     </Container>
   </section>
 </template>
 <script>
-import Container from "@/components/shared/Container.vue";
-import BaseInput from "@/components/shared/BaseInput.vue";
-import BaseTextarea from "@/components/shared/BaseTextarea.vue";
-import Title from "@/components/shared/Title.vue";
 export default {
-  name: "Skills",
-  components: { Container, Title, BaseInput, BaseTextarea },
+  name: "Contact",
   data() {
     return {
       firstName: "",
       lastName: "",
       message: "",
-      error: "",
     };
   },
-  methods: {},
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 .contact {
-  background: #f1faff;
+  background: $tertiary-color;
+  padding: $padding-20;
 }
 </style>

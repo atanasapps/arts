@@ -11,31 +11,33 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
 .title {
-  color: #141e30;
-  padding: 20px;
+  color: $primary-color;
+  padding: $padding-20 0px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
-}
 
-.title h3 {
-  border-bottom: 2px solid #141e30;
-  width: 20%;
-  text-align: center;
-}
-
-@media only screen and (max-width: 900px) {
-  .title h3 {
-    width: 60%;
+  h3 {
+    border-bottom: 2px solid $primary-color;
+    width: 20%;
+    text-align: center;
   }
-}
 
-@media only screen and (max-width: 600px) {
-  .title h3 {
-    width: 80%;
+  @media only screen and (max-width: 900px) {
+    .title h3 {
+      width: 60%;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .title h3 {
+      width: 80%;
+    }
   }
 }
 </style>

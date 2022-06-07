@@ -1,33 +1,31 @@
 <template>
-  <section id="skills">
+  <section id="skills" class="skills">
     <Container>
       <Title title="My Skills" />
-      <div class="row">
-        <div class="col-twothird">
+      <Row>
+        <Column twohalf_sm twothird_md>
           <Progress
             v-for="skill in skills"
             :key="skill._id"
             :label="skill.name"
             :percentage="skill.percentage"
           />
-          <div class="activities primary">
+          <div class="skills__activities">
             <div v-for="activity in activities" :key="activity._id">
               {{ activity.value }} <br />
               {{ activity.name }}
             </div>
           </div>
-        </div>
-      </div>
+        </Column>
+      </Row>
     </Container>
   </section>
 </template>
 <script>
-import Container from "@/components/shared/Container.vue";
 import Progress from "@/components/shared/Progress.vue";
-import Title from "@/components/shared/Title.vue";
 export default {
   name: "Skills",
-  components: { Container, Title, Progress },
+  components: { Progress },
   data() {
     return {
       skills: [
@@ -44,12 +42,20 @@ export default {
   },
 };
 </script>
-<style scoped>
-.activities {
-  display: flex;
-  text-align: center;
-  justify-content: space-around;
-  margin-top: 20px;
-  padding: 30px;
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
+.skills {
+  padding: $padding-20;
+
+  .skills__activities {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 30px;
+    background-color: $primary-color;
+    color: white;
+  }
 }
 </style>

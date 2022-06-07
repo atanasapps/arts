@@ -2,8 +2,8 @@
   <section id="about" class="about">
     <Container>
       <Title title="About Me" />
-      <div class="row">
-        <div class="col-twothird">
+      <Row>
+        <Column twohalf_sm twothird_md>
           Some text about me. I love taking photos of PEOPLE. I am lorem ipsum
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -25,21 +25,21 @@
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
           ea commodo consequat.
-        </div>
-      </div>
+        </Column>
+      </Row>
     </Container>
   </section>
 </template>
 <script>
-import Container from "@/components/shared/Container.vue";
-import Title from "@/components/shared/Title.vue";
 export default {
   name: "About",
-  components: { Container, Title },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
 .about {
-  background: #f2faff8b;
+  background-color: $tertiary-color;
+  color: $primary-color;
+  padding: $padding-20;
 }
 </style>

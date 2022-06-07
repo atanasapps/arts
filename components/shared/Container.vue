@@ -5,6 +5,6 @@
 </template>
 <style scoped>
 .container {
-  padding: 20px;
+  padding: 0.01em 16px;
 }
 </style>

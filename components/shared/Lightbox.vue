@@ -1,24 +1,23 @@
 <template>
-  <div class="modal">
-    <div class="modal-actions">
-      <button class="modal-actions__btn" :disabled="isMin" @click="zoomOut">
+  <div class="lightbox">
+    <div class="lightbox-content">
+      <img :srcset="image.src.srcSet" :style="imageStyle" @dblclick="maxZoom" />
+    </div>
+    <div class="lightbox-actions">
+      <button class="lightbox-actions__btn" :disabled="isMin" @click="zoomOut">
         &#9866;
       </button>
-      <button class="modal-actions__btn" :disabled="isMax" @click="zoomIn">
+      <button class="lightbox-actions__btn" :disabled="isMax" @click="zoomIn">
         &#10011;
       </button>
-      <button class="modal-actions__btn" :disabled="isMin" @click="resetZoom">
+      <button
+        class="lightbox-actions__btn"
+        :disabled="isMin"
+        @click="resetZoom"
+      >
         &#9744;
       </button>
-      <button class="modal-actions__btn" @click="close">&#10005;</button>
-    </div>
-    <div class="modal-content">
-      <img
-        class="modal-content__img"
-        :srcset="image.src.srcSet"
-        :style="imageStyle"
-        @dblclick="maxZoom"
-      />
+      <button class="lightbox-actions__btn" @click="close">&#10005;</button>
     </div>
   </div>
 </template>
@@ -76,75 +75,76 @@ export default {
   },
 };
 </script>
-<style scoped>
-.modal {
+<style lang="scss" scoped>
+@import "~/assets/scss/variables.scss";
+
+.lightbox {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.927);
   overflow: auto;
   width: 100%;
   height: 100%;
   z-index: 2;
-}
 
-.modal-actions {
-  position: fixed;
-  bottom: 3%;
-  right: 40%;
-  left: 40%;
-  background-color: #243b55c7;
-  border: 2px solid #243b55;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-}
+  .lightbox-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: auto;
 
-@media screen and (max-width: 900px) {
-  .modal-actions {
-    right: 35%;
-    left: 35%;
+    img {
+      margin: auto;
+      display: block;
+    }
   }
-}
 
-@media screen and (max-width: 600px) {
-  .modal-actions {
-    right: 20%;
-    left: 20%;
+  .lightbox-actions {
+    position: fixed;
+    bottom: 3%;
+    right: 40%;
+    left: 40%;
+    background-color: $secondary-color;
+    border: 2px solid $secondary-color;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
   }
-}
 
-.modal-actions__btn {
-  border-color: transparent;
-  border-radius: 50%;
-  background-color: transparent;
-  font-size: 18px;
-  color: whitesmoke;
-  padding: 6px 12px;
-  cursor: pointer;
-}
+  .lightbox-actions__btn {
+    border-color: transparent;
+    border-radius: $round;
+    background-color: transparent;
+    font-size: 18px;
+    color: whitesmoke;
+    padding: 6px 12px;
+    cursor: pointer;
 
-.modal-actions__btn:hover {
-  color: white;
-  font-weight: bolder;
-}
+    &:hover {
+      color: white;
+      font-weight: bolder;
+    }
 
-.modal-actions__btn:disabled {
-  color: rgb(126, 124, 124);
-}
+    &:disabled {
+      color: rgb(126, 124, 124);
+    }
+  }
 
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 10px;
-  margin: auto;
-}
+  @media screen and (max-width: 992px) {
+    .lightbox-actions {
+      right: 35%;
+      left: 35%;
+    }
+  }
 
-.modal-content__img {
-  margin: auto;
-  display: block;
+  @media screen and (max-width: 768px) {
+    .lightbox-actions {
+      right: 25%;
+      left: 25%;
+    }
+  }
 }
 </style>

@@ -1,0 +1,13 @@
+ @import "./variables.scss";
+
+ body {
+     font-family: "Raleway", sans-serif;
+     margin: 0 auto;
+     scroll-behavior: smooth;
+ }
+
+ .count {
+     text-align: right;
+     font-size: 10px;
+     color: $primary-color;
+ }

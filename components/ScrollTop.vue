@@ -4,11 +4,8 @@
   </div>
 </template>
 <script>
-import BaseButton from "@/components/shared/BaseButton.vue";
-
 export default {
   name: "ScrollTop",
-  components: { BaseButton },
   data() {
     return {
       show: false,
@@ -22,12 +19,11 @@ export default {
   },
   methods: {
     onScroll() {
-      this.show = window.scrollY > 150;
+      this.show = window.scrollY > 400;
     },
     scrollTop() {
       window.scroll({
         top: 0,
-        left: 0,
         behavior: "smooth",
       });
     },
